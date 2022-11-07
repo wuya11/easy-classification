@@ -56,7 +56,7 @@ cfg = {
     'weight_decay' : 0,#0.0001,
     "k_flod":5,
     'start_fold':0,
-    'early_stop_patient':7,
+    'early_stop_patient':5,
 
     'use_distill':0,
     'label_smooth':0,

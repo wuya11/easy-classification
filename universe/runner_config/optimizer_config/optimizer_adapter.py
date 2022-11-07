@@ -11,7 +11,7 @@
 
 from torch import optim
 
-from universe.ranger import Ranger
+from universe.runner_config.optimizer_config.ranger import Ranger
 from timm.optim import AdaBelief
 
 

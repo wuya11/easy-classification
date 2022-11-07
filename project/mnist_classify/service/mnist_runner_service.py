@@ -16,14 +16,12 @@ import datetime
 import torch
 import torch.nn as nn
 import numpy as np
-import cv2
 
-from universe.runner.loss_function_adapter import LossFunctionAdapter
-from universe.runner.metrics import getF1
-from universe.runner.optimizer_adapter import OptimizerAdapter, clipGradient
-from universe.runner.scheduler_adapter import SchedulerAdapter, GradualWarmupScheduler
+from universe.runner_config.loss_function_adapter import LossFunctionAdapter
+from universe.runner_config.metrics import getF1
+from universe.runner_config.optimizer_config.optimizer_adapter import OptimizerAdapter, clipGradient
+from universe.runner_config.scheduler_adapter import SchedulerAdapter, GradualWarmupScheduler
 from universe.utils.utils import printDash, draw_loss, draw_acc, freezeBeforeLinear
-import matplotlib.pyplot as plt
 
 
 class MnistRunnerService:
@@ -275,6 +273,9 @@ class MnistRunnerService:
             self.early_stop_value = self.val_acc
         if self.best_score > self.early_stop_value:
             self.early_stop_value = self.best_score
+            self.early_stop_dist = 0
+
+        if self.best_score == 0:
             self.early_stop_dist = 0
 
         self.early_stop_dist += 1
