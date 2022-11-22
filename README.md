@@ -1,9 +1,8 @@
 # Easy-Classification-分类框架说明文档
 
-(https://github.com/wuya11/easy-classification)
 
 ## 1. 前言
-Easy-Classification是一个应用于分类任务的深度学习框架，它集成了众多成熟的分类神经网络模型，可帮助使用者简单快速的构建分类训练任务。
+Easy-Classification是一个应用于分类任务的深度学习框架，它集成了众多成熟的分类神经网络模型，可帮助使用者简单快速的构建分类训练任务。(https://github.com/wuya11/easy-classification)
 ### 1.1 框架功能
 #### 1.1.1 数据加载
 * 文件夹形式
@@ -17,7 +16,7 @@ Easy-Classification是一个应用于分类任务的深度学习框架，它集�
 - ShuffleNetV2，[MicroNet](https://github.com/liyunsheng13/micronet)
 -  [EfficientNet](https://github.com/lukemelas/EfficientNet-PyTorch)
 -  [Swin Transformer](https://github.com/microsoft/Swin-Transformer)
-- [ConvNeXt](https://github.com/facebookresearch/ConvNeXt)
+- [ConvNeXt](https://github.com/facebookresearch/ConvNeXt(
 #### 1.1.3 优化器
 - Adam  
 - SGD 
@@ -44,10 +43,10 @@ Easy-Classification是一个应用于分类任务的深度学习框架，它集�
 
 ## 2. 框架设计
 Easy-Classification是一个简单轻巧的分类框架，目前版本主要包括两大模块，框架通用模块和项目应用模块。为方便用户快速体验，框架中目前包括简单手写数字识别和验证码识别两个示例项目。
-- 深度学习-训练训练流程说明：
-- 框架设计方案参考文档：
-- 简单手写数字识别：
-- 验证码识别：
+- 深度学习-训练训练流程说明：(https://www.cnblogs.com/wlandwl/p/deep_learn_flow.html)
+- 分类框架设计方案参考文档：(https://www.cnblogs.com/wlandwl/p/deep_learn_class.html)
+- 简单手写数字识别：(https://www.cnblogs.com/wlandwl/p/deep_learn_mnist.html)
+- 验证码识别：(https://www.cnblogs.com/wlandwl/p/deep_learn_captcha.html)
 
 ## 3. 参考文献
 1. [albumentations](https://github.com/albumentations-team/albumentations)

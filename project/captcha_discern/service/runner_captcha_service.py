@@ -168,9 +168,9 @@ class RunnerCaptchaService:
 
                 label = ''.join([alphabet[i] for i in output.cpu().numpy()])
                 res_dict[os.path.basename(img_names[0])] = label
-                count=0
+                count = 0
                 if label != real_label[0]:
-                    count+=1
+                    count += 1
                     print("[INFO] Faith match , real_label: %s ---pre_label:%s" % (real_label[0], label))
             print(count)
 
@@ -259,7 +259,7 @@ class RunnerCaptchaService:
         self.early_stop_value = 0
         self.early_stop_dist = 0
         self.last_save_path = None
-        self.best_score=0
+        self.best_score = 0
 
         self.earlystop = False
         self.best_epoch = 0
