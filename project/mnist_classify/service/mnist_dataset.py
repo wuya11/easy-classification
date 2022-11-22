@@ -32,7 +32,7 @@ class TrainDataset(Dataset):
     """
     构建一个 加载原始图片的dataSet对象
 
-    此函数可加载 训练集数据,基于路径识别验证码真实的label，label在转换为one-hot编码
+    此函数可加载 训练集数据，基于文件夹名称获取label
 
     若 验证集逻辑与训练集逻辑一样，验证集可使用TrainDataset，不同，则需自定义一个，参考如下EvalDataset
     """
@@ -161,6 +161,13 @@ def getLabels(label_path, source_img):
 
 
 def createTransform(cfg, img_deal):
+    """
+    将图像转换为张量对象
+    :param cfg: 配置文件对象
+    :param img_deal: 图像增强处理类（如大小，旋转，高斯函数等处理）
+    :return: 返回张量信息
+    """
+    # 不同的网络模型，适配获取归一性值
     my_normalize = NormalizeAdapter.getNormalize(cfg['model_name'])
     transform = transforms.Compose([
         img_deal(cfg),

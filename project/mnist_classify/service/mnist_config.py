@@ -33,7 +33,7 @@ cfg = {
     'pretrained':'', #path or ''
 
 
-    'try_to_train_items': 100,   # 0 means all, or run part(200 e.g.) for bug test
+    'try_to_train_items': 5000,   # 0 means all, or run part(200 e.g.) for bug test
     'save_best_only': True,  #only save model if better than before
     'save_one_only':True,    #only save one best model (will del model before)
     "save_dir": "output/",

@@ -39,9 +39,5 @@ def predict(cfg):
                   index=False, header=True)
 
 
-def main(cfg):
-    predict(cfg)
-
-
 if __name__ == '__main__':
-    main(cfg)
+    predict(cfg)

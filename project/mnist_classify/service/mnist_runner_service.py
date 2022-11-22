@@ -129,6 +129,8 @@ class MnistRunnerService:
 
     def onTrainStart(self):
 
+        # 记录每一次验证的最优结果
+        self.best_score = 0
         self.early_stop_value = 0
         self.early_stop_dist = 0
         self.last_save_path = None
@@ -242,7 +244,6 @@ class MnistRunnerService:
 
         self.val_loss_history.append(self.val_loss)
         self.val_acc_history.append(self.val_acc)
-        self.best_score = self.val_acc
 
         if 'F1' in self.cfg['metrics']:
             # print(labels)
@@ -254,6 +255,7 @@ class MnistRunnerService:
             self.best_score = f1_score
 
         else:
+            self.best_score = self.val_acc
             print(' \n           [VAL] loss: {:.5f}, acc: {:.3f}% \n'.format(
                 self.val_loss, 100. * self.val_acc))
 
@@ -269,8 +271,6 @@ class MnistRunnerService:
 
     def earlyStop(self, epoch):
         ### earlystop
-        if self.val_acc > self.early_stop_value:
-            self.early_stop_value = self.val_acc
         if self.best_score > self.early_stop_value:
             self.early_stop_value = self.best_score
             self.early_stop_dist = 0
@@ -290,13 +290,9 @@ class MnistRunnerService:
             self.earlystop = True
 
     def checkpoint(self, epoch):
-
-        if self.val_acc <= self.early_stop_value:
-            if self.best_score <= self.early_stop_value:
-                if self.cfg['save_best_only']:
-                    pass
-                else:
-                    self.saveModel(epoch)
+        if self.best_score <= self.early_stop_value:
+            if self.cfg['save_best_only']:
+                pass
             else:
                 self.saveModel(epoch)
         else:
