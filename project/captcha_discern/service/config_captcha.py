@@ -33,7 +33,7 @@ cfg = {
     'label_path': '',# if 'DIR' quale  train_path
      'pretrained':'', #path or ''
 
-    'try_to_train_items': 10000,   # 0 means all, or run part(200 e.g.) for bug test
+    'try_to_train_items': 0,   # 0 means all, or run part(200 e.g.) for bug test
     'save_best_only': True,  #only save model if better than before
     'save_one_only':True,    #only save one best model (will del model before)
     "save_dir": "output/",
@@ -45,7 +45,7 @@ cfg = {
 
 
     ### Train Hyperparameters
-    "target_img_size": [40, 120], # [h, w]
+    "target_img_size": [224, 224], # [h, w]
     'learning_rate':0.001,
     'batch_size':64,
     'epochs':100,
@@ -56,7 +56,7 @@ cfg = {
     'weight_decay' : 0,#0.0001,
     "k_flod":5,
     'start_fold':0,
-    'early_stop_patient':7,
+    'early_stop_patient':10,
 
     'use_distill':0,
     'label_smooth':0,
@@ -73,7 +73,7 @@ cfg = {
 
 
     ### Test
-    'model_path':'../../config/weight/mobilenet/mobilenetv3_e22_1.00000.pth',#test model
+    'model_path':'output/mobilenetv3_e20_0.85280.pth',#test model
     
     'TTA':False,
     'merge':False,

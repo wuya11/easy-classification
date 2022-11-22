@@ -97,6 +97,7 @@ class PredictDataset(Dataset):
         img = cv2.imread(self.source_img[index])
         if self.transform is not None:
             img = self.transform(img)
+        # 用于记录实际的label值（因为应用数据也是脚本生成的，所以可以知道正确的验证码）
         real_label = self.source_img[index].split("_")[0][-4:]
         return img, real_label, self.source_img[index]
 

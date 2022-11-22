@@ -28,7 +28,7 @@ def predict(cfg):
     test_loader = data.getPredictDataloader(PredictDataset)
 
     runner = RunnerCaptchaService(cfg, model)
-    modelLoad(cfg['model_path'])
+    modelLoad(model,cfg['model_path'])
     res_dict = runner.predict(test_loader)
     print(len(res_dict))
 

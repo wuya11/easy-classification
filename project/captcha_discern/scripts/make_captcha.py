@@ -25,7 +25,7 @@ MAX_CAPTCHA = 4
 # IMAGE_HEIGHT = 40
 # IMAGE_WIDTH = 100
 
-TRAIN_DATASET_PATH = '../data/train'
+TRAIN_DATASET_PATH = '../data/test'
 # '../data/val'
 # '../data/train'
 
@@ -142,7 +142,7 @@ def gen_captcha_text_and_image():
 
 if __name__ == '__main__':
     random.seed(42)
-    count = 15000
+    count = 6000
     path = TRAIN_DATASET_PATH    #通过改变此处目录，以生成 训练、测试和预测用的验证码集
     if not os.path.exists(path):
         os.makedirs(path)

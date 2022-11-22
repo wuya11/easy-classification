@@ -259,6 +259,7 @@ class RunnerCaptchaService:
         self.early_stop_value = 0
         self.early_stop_dist = 0
         self.last_save_path = None
+        self.best_score=0
 
         self.earlystop = False
         self.best_epoch = 0
@@ -382,16 +383,17 @@ class RunnerCaptchaService:
         else:
             if 'default' in self.cfg['scheduler']:
                 # self.scheduler.step(self.val_acc)
-                self.scheduler.step(self.val_acc)
+                self.scheduler.step(self.best_score)
             else:
                 self.scheduler.step()
 
     def earlyStop(self, epoch):
         ### earlystop
-        if self.val_acc > self.early_stop_value:
-            self.early_stop_value = self.val_acc
         if self.best_score > self.early_stop_value:
             self.early_stop_value = self.best_score
+            self.early_stop_dist = 0
+
+        if self.best_score == 0:
             self.early_stop_dist = 0
 
         self.early_stop_dist += 1
@@ -406,13 +408,9 @@ class RunnerCaptchaService:
             self.earlystop = True
 
     def checkpoint(self, epoch):
-
-        if self.val_acc <= self.early_stop_value:
-            if self.best_score <= self.early_stop_value:
-                if self.cfg['save_best_only']:
-                    pass
-                else:
-                    self.saveModel(epoch)
+        if self.best_score <= self.early_stop_value:
+            if self.cfg['save_best_only']:
+                pass
             else:
                 self.saveModel(epoch)
         else:

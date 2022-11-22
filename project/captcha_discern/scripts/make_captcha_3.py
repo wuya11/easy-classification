@@ -9,7 +9,7 @@ from PIL import ImageFont
 import cv2
 import numpy as np
 
-TRAIN_DATASET_PATH = '../data/train'
+TRAIN_DATASET_PATH = '../data/val'
 # '../data/val'
 # '../data/train'
 
@@ -241,5 +241,5 @@ if __name__ == '__main__':
     save_dir = TRAIN_DATASET_PATH
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
-    count = 15
+    count = 5000
     main(save_dir, count)
