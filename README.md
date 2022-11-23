@@ -2,7 +2,8 @@
 
 
 ## 1. 前言
-Easy-Classification是一个应用于分类任务的深度学习框架，它集成了众多成熟的分类神经网络模型，可帮助使用者简单快速的构建分类训练任务。[源代码](https://github.com/wuya11/easy-classification)
+Easy-Classification是一个应用于分类任务的深度学习框架，它集成了众多成熟的分类神经网络模型，可帮助使用者简单快速的构建分类训练任务。
+[参考项目](https://github.com/fire717/FireClassification/blob/master/LICENSE)
 ### 1.1 框架功能
 #### 1.1.1 数据加载
 * 文件夹形式
